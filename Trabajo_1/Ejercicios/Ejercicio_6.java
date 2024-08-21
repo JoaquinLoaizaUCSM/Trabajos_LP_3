@@ -1,15 +1,21 @@
 package Trabajo_1.Ejercicios;
 
 import utilities.userinput.InputHandler;
+import utilities.userinput.ValidatorFactory;
+import java.util.function.Predicate;
+
 
 public class Ejercicio_6 {
     public static void main(String[] args) {
 
-        int horas = InputHandler.getInteger("Ingrese el número de horas: ", true);
+        Predicate<Integer> rangoValidador = ValidatorFactory.betweenInclusive(0, 59);
 
-        int minutos = InputHandler.getInteger("Ingrese el número de minutos: ", true);
 
-        int segundos = InputHandler.getInteger("Ingrese el número de segundos: ", true);
+        int horas = InputHandler.getInteger("Ingrese el número de horas: ",true);
+
+        int minutos = InputHandler.getInteger("Ingrese el número de minutos: ",rangoValidador, true);
+
+        int segundos = InputHandler.getInteger("Ingrese el número de segundos: ", rangoValidador,true);
 
         int totalSegundos = convertirASegundos(horas, minutos, segundos);
         System.out.println("El equivalente en segundos es: " + totalSegundos);
