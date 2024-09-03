@@ -1,4 +1,4 @@
-package Trabajo_3.Ejercicios.SistemaGestionUCSM;
+package Trabajo_2.Ejercicios.SistemaGestionUCSM;
 
 public abstract class Persona {
     protected String nombre;

@@ -1,0 +1,67 @@
+@startuml
+
+
+
+class Curso {
+  + Curso(String, String, String):
+  - nombre: String
+  - estudiantesInscritos: List<Estudiante>
+  - codigoCurso: String
+  - profesor: Profesor
+  - categoria: String
+  + setProfesor(Profesor): void
+  + toString(): String
+  + agregarEstudiante(Estudiante): void
+  + obtenerCantidadEstudiantes(): int
+  + removerEstudiante(Estudiante): void
+}
+class Estudiante {
+  + Estudiante(String, String, String):
+  + MAX_CURSOS_INSCRITOS: int
+  - cursosInscritos: List<Curso>
+  - matricula: String
+  + obtenerInformacion(): String
+  + inscribirEnCurso(Curso): void
+  + obtenerCursosInscritos(): List<Curso>
+}
+class Persona {
+  + Persona(String, String):
+  # nombre: String
+  # apellido: String
+  + obtenerInformacion(): String
+}
+class Profesor {
+  + Profesor(String, String, String):
+  + MAX_CURSOS_ASIGNADOS: int
+  - idProfesor: String
+  - cursosAsignados: List<Curso>
+  + asignarCurso(Curso): void
+  + obtenerCursosAsignados(): List<Curso>
+  + obtenerInformacion(): String
+}
+class SistemaGestion {
+  + SistemaGestion():
+  - listaEstudiantes: List<Estudiante>
+  - listaProfesores: List<Profesor>
+  - listaCursos: List<Curso>
+  + agregarCurso(Curso): void
+  + obtenerCursoPorCodigo(String): Curso
+  + obtenerProfesorPorId(String): Profesor
+  + obtenerEstudiantePorMatricula(String): Estudiante
+  + agregarEstudiante(Estudiante): void
+  + agregarProfesor(Profesor): void
+  + inscribirEstudianteEnCurso(Estudiante, Curso): void
+  + mostrarCursosDisponibles(): List<Curso>
+  + asignarProfesorACurso(Profesor, Curso): void
+}
+
+Persona <|-- Estudiante
+Persona <|-- Profesor
+Curso          "1" *-[#595959,plain]-> Estudiante
+Curso          "1" *-[#595959,plain]->  Profesor
+Estudiante     "1" *-[#595959,plain]->  Curso
+Profesor       "1" *-[#595959,plain]->  Curso
+SistemaGestion "1" *-[#595959,plain]->  Curso
+SistemaGestion "1" *-[#595959,plain]->  Estudiante
+SistemaGestion "1" *-[#595959,plain]->  Profesor
+@enduml

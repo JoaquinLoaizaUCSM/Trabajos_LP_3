@@ -1,7 +1,7 @@
-package Trabajo_3.Ejercicios;
+package Trabajo_2.Ejercicios;
 
 
-import Trabajo_3.Ejercicios.SistemaGestionUCSM.*;
+import Trabajo_2.Ejercicios.SistemaGestionUCSM.*;
 
 public class AppGestorUCSM {
     public static void main(String[] args) {
