@@ -6,9 +6,9 @@ public class Habitacion {
     private int numero;
     private String tipo;
     private double precioBase;
-    private GestorDisponibilidadHabitacion gestorDisponibilidad;
+    private GestorHabitacion gestorDisponibilidad;
 
-    public Habitacion(int numero, String tipo, double precioBase, GestorDisponibilidadHabitacion gestorDisponibilidad) {
+    public Habitacion(int numero, String tipo, double precioBase, GestorHabitacion gestorDisponibilidad) {
         this.numero = numero;
         this.tipo = tipo;
         this.precioBase = precioBase;

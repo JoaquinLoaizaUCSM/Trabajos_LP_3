@@ -2,7 +2,7 @@ package Trabajo_3.Ejercicios;
 
 public class HabitacionEstandar extends Habitacion implements ServicioLimpieza {
 
-    public HabitacionEstandar(int numero, String tipo, double precioBase, GestorDisponibilidadHabitacion gestorDisponibilidad) {
+    public HabitacionEstandar(int numero, String tipo, double precioBase, GestorHabitacion gestorDisponibilidad) {
         super(numero, tipo, precioBase, gestorDisponibilidad);
     }
 
@@ -18,7 +18,7 @@ public class HabitacionEstandar extends Habitacion implements ServicioLimpieza {
 
 class HabitacionSuite extends Habitacion implements ServicioLimpieza, ServicioComida, ServicioLavanderia {
 
-    public HabitacionSuite(int numero, String tipo, double precioBase, GestorDisponibilidadHabitacion gestorDisponibilidad) {
+    public HabitacionSuite(int numero, String tipo, double precioBase, GestorHabitacion gestorDisponibilidad) {
         super(numero, tipo, precioBase, gestorDisponibilidad);
     }
 

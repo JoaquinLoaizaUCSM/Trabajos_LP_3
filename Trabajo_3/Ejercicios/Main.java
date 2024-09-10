@@ -1,19 +1,17 @@
 package Trabajo_3.Ejercicios;
 
 import java.util.Date;
-import java.util.ArrayList;
-import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
         // Inicialización de las clases necesarias
-        GestorDisponibilidadHabitacion gestorDisponibilidad = new GestorDisponibilidadHabitacion();
+        GestorHabitacion gestorDisponibilidad = new GestorHabitacion();
         NotificadorReserva notificador = new NotificadorReserva(new EnviadorCorreo());
         GeneradorInformes generadorInformes = new GeneradorInformes();
 
         // Crear clientes
         Cliente cliente1 = new Cliente("Joaquin", "Joaquin.loaiza@ucsm.edu.pe", "900659285");
-        Cliente cliente2 = new Cliente("Sebas", "sebas@ucsm.edu.pe", "987654321");
+        Cliente cliente2 = new Cliente("sebas", "maria@example.com", "987654321");
 
         // Crear promociones
         Date promocionInicio = new Date(2024, 5, 1);
