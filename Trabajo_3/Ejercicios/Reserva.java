@@ -19,6 +19,14 @@ public class Reserva {
         this.promocion = promocion;
     }
 
+    public Reserva(Habitacion habitacion, Cliente cliente, Date fechaFin, Date fechaInicio, PoliticaCancelacion politicaCancelacion) {
+        this.habitacion = habitacion;
+        this.cliente = cliente;
+        this.fechaFin = fechaFin;
+        this.fechaInicio = fechaInicio;
+        this.politicaCancelacion = politicaCancelacion;
+    }
+
     public Habitacion getHabitacion() {
         return habitacion;
     }

@@ -12,3 +12,4 @@ public class MenuCommand implements Command {
         action.run();
     }
 }
+

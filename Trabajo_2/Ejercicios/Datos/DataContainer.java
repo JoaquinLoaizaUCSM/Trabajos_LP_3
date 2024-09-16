@@ -1,7 +1,7 @@
-package Trabajo_3.Ejercicios.Datos;
+package Trabajo_2.Ejercicios.Datos;
 
 
-import Trabajo_3.Ejercicios.SistemaGestionUCSM.*;
+import Trabajo_2.Ejercicios.SistemaGestionUCSM.*;
 
 import java.util.List;
 import java.util.ArrayList;

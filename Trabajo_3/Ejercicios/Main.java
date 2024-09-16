@@ -34,6 +34,7 @@ public class Main {
         ControladorReservas controladorReservas = new ControladorReservas(gestorDisponibilidad, notificador, generadorInformes);
 
         Date fechaInicioReserva = new Date(2024, 5, 5);
+        //noinspection deprecation
         Date fechaFinReserva = new Date(2024, 5, 10);
 
         System.out.println("Probando reserva con habitacion estándar...");

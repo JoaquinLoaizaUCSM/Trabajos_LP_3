@@ -23,9 +23,7 @@ public class Ejercicio_5 {
             double residuo = horas % 24;
             int day = (int) (horas/24);
 
-            if (residuo - 1 < 0){
-                residuo = 1;
-            }
+            if (residuo - 1 < 0){residuo = 1;}
 
             cargo = (3.00 + (residuo - 1) * 0.50) + day * 12;
 
