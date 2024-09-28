@@ -63,7 +63,7 @@ class ProcesadorCaracteres {
     public void procesar() throws Exception {
         System.out.print("Ingrese el texto: ");
         char c = lector.getChar();
-        if ("aeiouAEIOU".indexOf(c) != -1) {
+        if ("aeiouAEIOUà".indexOf(c) != -1) {
             throw new ExcepcionVocal("Se encontró una vocal: " + c);
         } else if (Character.isDigit(c)) {
             throw new ExcepcionNumero("Se encontró un número: " + c);

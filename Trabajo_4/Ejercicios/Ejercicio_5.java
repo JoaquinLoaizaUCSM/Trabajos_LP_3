@@ -109,6 +109,8 @@ class ContactoNoEncontradoException extends Exception {
 }
 
 class Contacto {
+    private static long serialID = 0;
+    private long ID;
     private String nombre;
     private String telefono;
     private String email;
@@ -126,23 +128,20 @@ class Contacto {
         this.nombre = nombre;
         this.telefono = telefono;
         this.email = email;
+        ID = serialID++;
     }
 
     public String getNombre() {
         return nombre;
     }
 
-    public String getTelefono() {
-        return telefono;
-    }
-
-    public String getEmail() {
-        return email;
+    public long getID() {
+        return ID;
     }
 
     @Override
     public String toString() {
-        return "Contacto{nombre='" + nombre + "', telefono='" + telefono + "', email='" + email + "'}";
+        return "ID: "+ID+", nombre='" + nombre + "', telefono='" + telefono + "', email='" + email + "'}";
     }
 }
 
@@ -171,6 +170,19 @@ class GestorContactos {
             }
         }
         throw new ContactoNoEncontradoException("No se encontró el contacto: " + nombre);
+    }
+
+    public void modificarContacto(int id, Contacto nuevoContacto) throws ContactoNoEncontradoException, ContactoInvalidoException {
+        if (nuevoContacto == null) {
+            throw new ContactoInvalidoException("El nuevo contacto no puede ser nulo");
+        }
+        for (int i = 0; i < contactos.size(); i++) {
+            if (contactos.get(i).getID() == id) {
+                contactos.set(i, nuevoContacto);
+                return;
+            }
+        }
+        throw new ContactoNoEncontradoException("No se encontró el id: " + id);
     }
 
     public void eliminarContacto(String nombre) throws ContactoNoEncontradoException {
