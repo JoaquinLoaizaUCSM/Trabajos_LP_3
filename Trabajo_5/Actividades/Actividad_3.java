@@ -6,11 +6,12 @@ public class Actividad_3 {
         Persona luis = new Persona(18);
 
         System.out.println(IgualGenerico.esIgualA(luis,grossman));
+        System.out.println(IgualGenerico.esIgualA("luis","luis"));
         System.out.println(IgualGenerico.esIgualA(luis,null));
         System.out.println(IgualGenerico.esIgualA(null,null));
-
     }
 }
+
 class Persona{
     int id;
 
@@ -24,11 +25,6 @@ class Persona{
         if (!(o instanceof Persona persona)) return false;
 
         return id == persona.id;
-    }
-
-    @Override
-    public int hashCode() {
-        return id;
     }
 }
 
