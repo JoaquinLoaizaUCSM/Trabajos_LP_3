@@ -1,3 +1,4 @@
+/*
 package Trabajo_6.Ejercicios.ejercicio1.controllers;
 
 import model.dao.ProductoDAO;
@@ -18,4 +19,4 @@ public class ProductoController {
         List<Producto> productos = productoDAO.getAllProductos();
         productoView.printProductos(productos);
     }
-}
+}*/

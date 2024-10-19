@@ -1,3 +1,4 @@
+/*
 package Trabajo_6.Ejercicios.ejercicio1.model.dao;
 
 import model.Resena;
@@ -49,4 +50,4 @@ public class ResenaDAO {
         }
         return resenas;
     }
-}
+}*/

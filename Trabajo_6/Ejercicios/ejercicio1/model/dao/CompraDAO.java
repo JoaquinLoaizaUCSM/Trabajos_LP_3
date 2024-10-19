@@ -1,3 +1,4 @@
+/*
 package Trabajo_6.Ejercicios.ejercicio1.model.dao;
 
 import Database.DatabaseConnection;
@@ -38,11 +39,13 @@ public class CompraDAO {
             conn.commit();
         } catch (SQLException e) {
             e.printStackTrace();
-            /*try {
+            */
+/*try {
                 conn.rollback();
             } catch (SQLException ex) {
                 ex.printStackTrace();
-            }*/
+            }*//*
+
         }
     }
 
@@ -63,4 +66,4 @@ public class CompraDAO {
         }
         return compras;
     }
-}
+}*/

@@ -1,3 +1,4 @@
+/*
 package Trabajo_6.Ejercicios.ejercicio1.controllers;
 
 import model.dao.CompraDAO;
@@ -23,4 +24,4 @@ public class CompraController {
         List<Compra> compras = compraDAO.getHistorialCompras(usuarioId);
         compraView.printCompras(compras);
     }
-}
+}*/

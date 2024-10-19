@@ -1,3 +1,4 @@
+/*
 package Trabajo_6.Ejercicios.ejercicio1.model.dao;
 
 import Database.DatabaseConnection;
@@ -25,4 +26,4 @@ public class ProductoDAO {
         }
         return productos;
     }
-}
+}*/

@@ -1,3 +1,4 @@
+/*
 package Trabajo_6.Ejercicios.ejercicio1.view;
 
 import model.Resena;
@@ -12,4 +13,4 @@ public class ResenaView {
     public void printMessage(String message) {
         System.out.println(message);
     }
-}
+}*/

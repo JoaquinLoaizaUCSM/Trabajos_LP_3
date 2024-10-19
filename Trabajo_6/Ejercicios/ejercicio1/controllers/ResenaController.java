@@ -1,3 +1,4 @@
+/*
 package Trabajo_6.Ejercicios.ejercicio1.controllers;
 
 import model.dao.ResenaDAO;
@@ -30,3 +31,4 @@ public class ResenaController {
         resenaView.printResenas(resenas);
     }
 }
+*/

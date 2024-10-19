@@ -1,3 +1,4 @@
+/*
 package Trabajo_6.Ejercicios.ejercicio1.main;
 
 import Database.DatabaseConnection;
@@ -121,3 +122,4 @@ public class Main {
     }
 
 }
+*/

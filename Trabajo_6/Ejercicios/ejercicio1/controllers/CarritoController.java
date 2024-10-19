@@ -1,8 +1,9 @@
+/*
 package Trabajo_6.Ejercicios.ejercicio1.controllers;
 
-import model.dao.CarritoDAO;
-import model.Carrito;
-import view.CarritoView;
+import Trabajo_6.Ejercicios.ejercicio1.model.dao.CarritoDAO;
+import Trabajo_6.Ejercicios.ejercicio1.model.Carrito;
+import Trabajo_6.Ejercicios.ejercicio1.view.CarritoView;
 import java.util.List;
 
 public class CarritoController {
@@ -30,3 +31,4 @@ public class CarritoController {
         carritoView.printCarrito(carrito);
     }
 }
+*/

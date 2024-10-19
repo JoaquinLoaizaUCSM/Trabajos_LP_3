@@ -1,3 +1,4 @@
+/*
 package Trabajo_6.Ejercicios.ejercicio1.controllers;
 
 import model.dao.UsuarioDAO;
@@ -25,4 +26,4 @@ public class UsuarioController {
     public int login(String email, String password) {
         return usuarioDAO.login(email, password);
     }
-}
+}*/

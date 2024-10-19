@@ -1,3 +1,4 @@
+/*
 package Trabajo_6.Ejercicios.ejercicio1.view;
 
 import model.Producto;
@@ -13,3 +14,4 @@ public class ProductoView {
         }
     }
 }
+*/

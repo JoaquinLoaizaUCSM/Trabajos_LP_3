@@ -1,3 +1,4 @@
+/*
 package Trabajo_6.Ejercicios.ejercicio1.Database;
 
 import java.sql.Connection;
@@ -14,4 +15,4 @@ public class DatabaseConnection {
     public static Connection getConnection() throws SQLException {
         return DriverManager.getConnection(URL, USER, PASSWORD);
     }
-}
+}*/

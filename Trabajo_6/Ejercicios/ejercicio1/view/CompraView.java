@@ -1,3 +1,4 @@
+/*
 package Trabajo_6.Ejercicios.ejercicio1.view;
 
 import model.Compra;
@@ -12,4 +13,4 @@ public class CompraView {
     public void printMessage(String message) {
         System.out.println(message);
     }
-}
+}*/

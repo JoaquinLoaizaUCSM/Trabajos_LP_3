@@ -1,3 +1,4 @@
+/*
 package Trabajo_6.Ejercicios.ejercicio1.view;
 
 import model.Usuario;
@@ -14,3 +15,4 @@ public class UsuarioView {
         }
     }
 }
+*/
