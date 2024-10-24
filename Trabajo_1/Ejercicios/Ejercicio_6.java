@@ -1,3 +1,4 @@
+/*
 package Trabajo_1.Ejercicios;
 
 import utilities.userinput.InputHandler;
@@ -24,4 +25,4 @@ public class Ejercicio_6 {
     public static int convertirASegundos(int horas, int minutos, int segundos) {
         return horas * 3600 + minutos * 60 + segundos;
     }
-}
+}*/

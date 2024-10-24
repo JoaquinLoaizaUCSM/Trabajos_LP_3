@@ -1,3 +1,4 @@
+/*
 package Trabajo_1.Ejercicios;
 
 import java.util.ArrayList;
@@ -24,4 +25,4 @@ public class Ejercicio_2 {
         }
         return arreglo;
     }
-}
+}*/

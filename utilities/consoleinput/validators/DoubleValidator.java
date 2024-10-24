@@ -1,5 +1,6 @@
 package utilities.consoleinput.validators;
 
+import utilities.consoleinput.Messages;
 import utilities.consoleinput.exceptions.ValidationException;
 
 import java.util.ArrayList;
@@ -9,7 +10,7 @@ import java.util.function.Predicate;
 /**
  * Validator for double inputs.
  */
-public class DoubleValidator implements InputValidator<Double> {
+public class DoubleValidator extends NumberValidator implements InputValidator<Double> {
     private Double minValue;
     private Double maxValue;
     private List<Predicate<Double>> conditions;
@@ -29,9 +30,15 @@ public class DoubleValidator implements InputValidator<Double> {
         return this;
     }
 
-    public DoubleValidator condition(Predicate<Double> condition, String errorMessage) {
-        this.conditions.add(condition);
-        this.errorMessage = errorMessage;
+    public DoubleValidator condition(Predicate<Integer> condition, String errorMessageKey, Object... params) {
+        rules.add(new ValidationRule<>(condition, Messages.get(errorMessageKey, params)));
+        return this;
+    }
+
+    public DoubleValidator errorMessage(String errorMessageKey, Object... params) {
+        if (!rules.isEmpty()) {
+            rules.getLast().setErrorMessage(Messages.get(errorMessageKey, params));
+        }
         return this;
     }
 

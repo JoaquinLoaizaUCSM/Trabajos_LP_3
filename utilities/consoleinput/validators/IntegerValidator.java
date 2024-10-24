@@ -1,19 +1,15 @@
 package utilities.consoleinput.validators;
-
 import utilities.consoleinput.exceptions.ValidationException;
 import utilities.consoleinput.Messages;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.function.Predicate;
 
 /**
  * Validator for integer inputs.
  */
-public class IntegerValidator implements InputValidator<Integer> {
+public class IntegerValidator extends NumberValidator implements InputValidator<Integer> {
     private Integer minValue;
     private Integer maxValue;
-    private final List<ValidationRule<Integer>> rules = new ArrayList<>();
 
     public IntegerValidator min(int minValue) {
         this.minValue = minValue;
@@ -32,7 +28,7 @@ public class IntegerValidator implements InputValidator<Integer> {
 
     public IntegerValidator errorMessage(String errorMessageKey, Object... params) {
         if (!rules.isEmpty()) {
-            rules.get(rules.size() - 1).setErrorMessage(Messages.get(errorMessageKey, params));
+            rules.getLast().setErrorMessage(Messages.get(errorMessageKey, params));
         }
         return this;
     }

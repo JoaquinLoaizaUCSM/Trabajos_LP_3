@@ -1,3 +1,4 @@
+/*
 package Trabajo_1.Ejercicios;
 
 import utilities.userinput.InputHandler;
@@ -18,4 +19,4 @@ public class Ejercicio_4 {
     public static double menor(double a, double b, double c) {
         return Math.min(a, Math.min(b, c));
     }
-}
+}*/

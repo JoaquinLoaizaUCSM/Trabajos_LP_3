@@ -54,6 +54,16 @@ public class StringValidator implements InputValidator<String> {
                 .errorMessage("El correo electrónico no es válido.");
     }
 
+    public StringValidator password() {
+        return matches("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$")
+                .errorMessage("La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula, un número y un carácter especial.");
+    }
+
+    public StringValidator alphanumeric() {
+        return matches("^[a-zA-Z0-9]*$")
+                .errorMessage("La entrada debe contener solo caracteres alfanuméricos.");
+    }
+
 
 
     @Override

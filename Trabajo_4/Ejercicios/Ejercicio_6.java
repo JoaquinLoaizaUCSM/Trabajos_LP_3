@@ -1,3 +1,4 @@
+/*
 package Trabajo_4.Ejercicios;
 
 import utilities.consolemenu.*;
@@ -217,3 +218,4 @@ class Pago {
     // Getters
     public Date getFecha() { return fecha; }
 }
+*/
