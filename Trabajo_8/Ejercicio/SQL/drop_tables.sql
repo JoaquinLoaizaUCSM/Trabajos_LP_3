@@ -1,0 +1,9 @@
+DROP TABLE IF EXISTS Canciones_Listas;
+DROP TABLE IF EXISTS Listas_Reproduccion;
+DROP TABLE IF EXISTS Canciones_Artistas;
+DROP TABLE IF EXISTS Canciones;
+DROP TABLE IF EXISTS Albumes_Artistas;
+DROP TABLE IF EXISTS Albumes;
+DROP TABLE IF EXISTS Artistas;
+DROP TABLE IF EXISTS Perfiles_Usuarios;
+DROP TABLE IF EXISTS Usuarios;
