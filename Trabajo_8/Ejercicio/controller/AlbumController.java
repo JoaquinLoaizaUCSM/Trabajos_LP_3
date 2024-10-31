@@ -1,13 +1,11 @@
 package Trabajo_8.Ejercicio.controller;
 
-
 import Trabajo_8.Ejercicio.model.dao.AlbumDAO;
 import Trabajo_8.Ejercicio.view.AlbumView;
-
+import Trabajo_8.Ejercicio.model.Album;
 import java.util.List;
 
 public class AlbumController {
-
     private AlbumDAO albumDAO;
     private AlbumView albumView;
 
@@ -17,18 +15,30 @@ public class AlbumController {
     }
 
     public void agregarAlbum() {
-        // Lógica para agregar un nuevo álbum
+        Album album = albumView.obtenerDatosAlbum();
+        albumDAO.insertarAlbum(album);
+        albumView.mostrarMensaje("Álbum agregado exitosamente.");
     }
 
     public void mostrarAlbumes() {
-        // Lógica para mostrar todos los álbumes
+        List<Album> albums = albumDAO.obtenerTodosLosAlbumes();
+        albumView.mostrarAlbumes(albums);
     }
 
     public void actualizarAlbum() {
-        // Lógica para actualizar un álbum existente
+        int albumId = albumView.obtenerIdAlbum();
+        Album album = albumDAO.obtenerAlbumPorId(albumId);
+        if (album != null) {
+            Album updatedAlbum = albumView.obtenerDatosAlbum();
+            albumDAO.actualizarAlbum(updatedAlbum);
+            albumView.mostrarMensaje("Álbum actualizado exitosamente.");
+        } else {
+            albumView.mostrarMensaje("Álbum no encontrado.");
+        }
     }
-
     public void eliminarAlbum() {
-        // Lógica para eliminar un álbum
+        int albumId = albumView.obtenerIdAlbum();
+        albumDAO.eliminarAlbum(albumId);
+        albumView.mostrarMensaje("Álbum eliminado exitosamente.");
     }
 }

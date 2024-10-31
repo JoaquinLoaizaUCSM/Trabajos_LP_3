@@ -1,7 +1,5 @@
 package Trabajo_8.Ejercicio.model.dao;
 
-
-
 import Trabajo_8.Ejercicio.model.Artista;
 import Trabajo_8.Ejercicio.model.util.DatabaseConnection;
 
@@ -10,32 +8,80 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ArtistaDAO {
-
     private Connection connection;
-
-    public ArtistaDAO() {
-        connection = DatabaseConnection.getConnection();
-    }
+    public ArtistaDAO() {connection = DatabaseConnection.getConnection();}
 
     public void insertarArtista(Artista artista) {
-        // Implementar lógica para insertar un artista en la base de datos
+        try {
+            String query = "INSERT INTO artistas (nombre, genero, nacionalidad) VALUES (?, ?, ?)";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, artista.getNombre());
+            preparedStatement.setString(2,artista.getGenero());
+            preparedStatement.setString(3,artista.getPaisOrigen());
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public Artista obtenerArtistaPorId(int id) {
-        // Implementar lógica para obtener un artista por su ID
+        try {
+            String query = "SELECT * FROM artistas WHERE id = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, id);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                return new Artista(resultSet.getInt("id"),
+                        resultSet.getString("nombre"),
+                        resultSet.getString("genero"),
+                        resultSet.getString("nacionalidad")
+                );
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return null;
     }
 
     public List<Artista> obtenerTodosLosArtistas() {
-        // Implementar lógica para obtener todos los artistas
-        return new ArrayList<>();
+        List<Artista> artistas = new ArrayList<>();
+        try {
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM artistas");
+            while (resultSet.next()) {
+                artistas.add(new Artista(resultSet.getInt("id"),
+                        resultSet.getString("nombre"),
+                        resultSet.getString("genero"),
+                        resultSet.getString("nacionalidad")
+                ));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return artistas;
     }
 
     public void actualizarArtista(Artista artista) {
-        // Implementar lógica para actualizar un artista existente
+        try {
+            String query = "UPDATE artistas SET nombre = ?, genero = ?, nacionalidad = ? WHERE id = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, artista.getNombre());
+            preparedStatement.setString(2, artista.getGenero());
+            preparedStatement.setString(3, artista.getPaisOrigen());
+            preparedStatement.setInt(4, artista.getArtistaId());
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();}
     }
 
     public void eliminarArtista(int id) {
-        // Implementar lógica para eliminar un artista por su ID
+        try {
+            String query = "DELETE FROM artistas WHERE id = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, id);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

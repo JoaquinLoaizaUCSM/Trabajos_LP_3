@@ -1,8 +1,6 @@
 package Trabajo_8.Ejercicio.view;
 
-
 import Trabajo_8.Ejercicio.model.Artista;
-
 import java.util.List;
 import java.util.Scanner;
 

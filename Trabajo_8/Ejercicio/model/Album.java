@@ -1,5 +1,4 @@
 package Trabajo_8.Ejercicio.model;
-
 import java.util.Date;
 
 public class Album {
@@ -10,7 +9,6 @@ public class Album {
 
     public Album() {
     }
-
     public Album(int albumId, String nombre, Date fechaLanzamiento, String genero) {
         this.albumId = albumId;
         this.nombre = nombre;
@@ -22,31 +20,24 @@ public class Album {
     public int getAlbumId() {
         return albumId;
     }
-
     public void setAlbumId(int albumId) {
         this.albumId = albumId;
     }
-
     public String getNombre() {
         return nombre;
     }
-
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-
     public Date getFechaLanzamiento() {
         return fechaLanzamiento;
     }
-
     public void setFechaLanzamiento(Date fechaLanzamiento) {
         this.fechaLanzamiento = fechaLanzamiento;
     }
-
     public String getGenero() {
         return genero;
     }
-
     public void setGenero(String genero) {
         this.genero = genero;
     }

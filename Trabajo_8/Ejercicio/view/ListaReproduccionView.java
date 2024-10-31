@@ -1,7 +1,5 @@
 package Trabajo_8.Ejercicio.view;
 
-
-
 import Trabajo_8.Ejercicio.model.ListaReproduccion;
 import java.util.List;
 

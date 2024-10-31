@@ -1,6 +1,5 @@
 package Trabajo_8.Ejercicio;
 
-
 import Trabajo_8.Ejercicio.controller.*;
 import Trabajo_8.Ejercicio.model.dao.*;
 import Trabajo_8.Ejercicio.model.util.DatabaseConnection;
@@ -11,6 +10,7 @@ public class Main {
     public static void main(String[] args) {
         MainView mainView = new MainView();
         int opcion;
+        int opcionAlbum;
 
         do {
             mainView.mostrarMenuPrincipal();
@@ -30,13 +30,32 @@ public class Main {
                     ArtistaView artistaView = new ArtistaView();
                     ArtistaController artistaController = new ArtistaController(artistaDAO, artistaView);
                     // Llamar a métodos del controlador de artistas
+
                     break;
                 case 3:
-                    // Gestión de Álbumes
                     AlbumDAO albumDAO = new AlbumDAO();
                     AlbumView albumView = new AlbumView();
                     AlbumController albumController = new AlbumController(albumDAO, albumView);
-                    // Llamar a métodos del controlador de álbumes
+                    albumView.MenuAlbum();
+                    opcionAlbum = mainView.leerOpcion();
+                    switch (opcionAlbum) {
+                        case 1:
+                            albumController.agregarAlbum();
+                            break;
+                        case 2:
+                            albumController.mostrarAlbumes();
+                            break;
+                        case 3:
+                            albumController.actualizarAlbum();
+                            break;
+                        case 4:
+                            albumController.eliminarAlbum();
+                            break;
+                        case 5:
+                            break;
+                        default:
+                            System.out.println("Opción no válida. Intente de nuevo.");
+                    }
                     break;
                 case 4:
                     // Gestión de Canciones
@@ -46,7 +65,6 @@ public class Main {
                     // Llamar a métodos del controlador de canciones
                     break;
                 case 5:
-                    // Gestión de Listas de Reproducción
                     ListaReproduccionDAO listaDAO = new ListaReproduccionDAO();
                     ListaReproduccionView listaView = new ListaReproduccionView();
                     ListaReproduccionController listaController = new ListaReproduccionController(listaDAO, listaView);

@@ -1,7 +1,5 @@
 package Trabajo_8.Ejercicio.model.dao;
 
-
-
 import Trabajo_8.Ejercicio.model.Usuario;
 import Trabajo_8.Ejercicio.model.util.DatabaseConnection;
 
@@ -10,32 +8,61 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UsuarioDAO {
-
-    private Connection connection;
-
-    public UsuarioDAO() {
-        connection = DatabaseConnection.getConnection();
+    public void insertUsuario(Usuario usuario) {
+        String sql = "INSERT INTO Usuarios (nombre, email, tipo_suscripcion, fecha_creacion) VALUES (?, ?, ?, ?)";
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, usuario.getNombre());
+            pstmt.setString(2, usuario.getEmail());
+            pstmt.setString(3, usuario.getTipoSuscripcion());
+            pstmt.setDate(4, (Date) usuario.getFechaCreacion());
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
-    public void insertarUsuario(Usuario usuario) {
-        // Implementar lógica para insertar un usuario en la base de datos
+    public List<Usuario> getAllUsuarios() {
+        List<Usuario> usuarios = new ArrayList<>();
+        String sql = "SELECT * FROM Usuarios";
+        try (Connection conn = DatabaseConnection.getConnection();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
+            while (rs.next()) {
+                Usuario usuario = new Usuario();
+                usuario.setUsuarioId(rs.getInt("usuario_id"));
+                usuario.setNombre(rs.getString("nombre"));
+                usuario.setEmail(rs.getString("email"));
+                usuario.setTipoSuscripcion(rs.getString("tipo_suscripcion"));
+                usuario.setFechaCreacion(rs.getDate("fecha_creacion"));
+                usuarios.add(usuario);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return usuarios;
     }
 
-    public Usuario obtenerUsuarioPorId(int id) {
-        // Implementar lógica para obtener un usuario por su ID
-        return null;
+    public void updateUsuario(int usuarioId, String tipoSuscripcion) {
+        String sql = "UPDATE Usuarios SET tipo_suscripcion = ? WHERE usuario_id = ?";
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, tipoSuscripcion);
+            pstmt.setInt(2, usuarioId);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
-    public List<Usuario> obtenerTodosLosUsuarios() {
-        // Implementar lógica para obtener todos los usuarios
-        return new ArrayList<>();
-    }
-
-    public void actualizarUsuario(Usuario usuario) {
-        // Implementar lógica para actualizar un usuario existente
-    }
-
-    public void eliminarUsuario(int id) {
-        // Implementar lógica para eliminar un usuario por su ID
+    public void deleteUsuario(int usuarioId) {
+        String sql = "DELETE FROM Usuarios WHERE usuario_id = ?";
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, usuarioId);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

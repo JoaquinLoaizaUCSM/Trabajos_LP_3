@@ -19,4 +19,7 @@ public class MainView {
         Scanner scanner = new Scanner(System.in);
         return scanner.nextInt();
     }
+    public void mostrarMensaje(String mensaje) {
+        System.out.println(mensaje);
+    }
 }

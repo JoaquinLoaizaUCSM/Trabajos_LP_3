@@ -1,9 +1,7 @@
 package Trabajo_8.Ejercicio.view;
 
-
 import Trabajo_8.Ejercicio.model.Cancion;
 import java.util.List;
-
 
 public class CancionView {
 

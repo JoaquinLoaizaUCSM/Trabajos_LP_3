@@ -1,13 +1,11 @@
 package Trabajo_8.Ejercicio.controller;
 
-
+import Trabajo_8.Ejercicio.model.Usuario;
 import Trabajo_8.Ejercicio.model.dao.UsuarioDAO;
 import Trabajo_8.Ejercicio.view.UsuarioView;
-
 import java.util.List;
 
 public class UsuarioController {
-
     private UsuarioDAO usuarioDAO;
     private UsuarioView usuarioView;
 
@@ -15,20 +13,18 @@ public class UsuarioController {
         this.usuarioDAO = usuarioDAO;
         this.usuarioView = usuarioView;
     }
-
-    public void agregarUsuario() {
-        // Lógica para agregar un nuevo usuario
-    }
-
     public void mostrarUsuarios() {
-        // Lógica para mostrar todos los usuarios
+        List<Usuario> usuarios = usuarioDAO.getAllUsuarios();
+        usuarioView.displayUsuarios(usuarios);
     }
-
-    public void actualizarUsuario() {
-        // Lógica para actualizar un usuario existente
+    public void agregarUsuario(Usuario usuario) {
+        usuarioDAO.insertUsuario(usuario);
     }
-
-    public void eliminarUsuario() {
-        // Lógica para eliminar un usuario
+    public void actualizarUsuario(int usuarioId, String tipoSuscripcion) {
+        usuarioDAO.updateUsuario(usuarioId, tipoSuscripcion);
+    }
+    public void eliminarUsuario(int usuarioId) {
+        usuarioDAO.deleteUsuario(usuarioId);
     }
 }
+
