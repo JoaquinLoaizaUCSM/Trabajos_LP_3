@@ -29,4 +29,14 @@ public class DatabaseConnection {
             e.printStackTrace();
         }
     }
+
+    public static void closeConnection(boolean commit) {
+        try {
+            if (commit) {
+                connection.close();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }

@@ -1,7 +1,6 @@
 package Trabajo_8.Ejercicio.model.dao;
 
 import Trabajo_8.Ejercicio.model.Cancion;
-import Trabajo_8.Ejercicio.model.util.DatabaseConnection;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,8 +9,8 @@ public class CancionDAO {
 
     private Connection connection;
 
-    public CancionDAO() {
-        connection = DatabaseConnection.getConnection();
+    public CancionDAO(Connection connection) {
+        this.connection = connection;
     }
 
     public void insertarCancion(Cancion cancion) {
@@ -29,15 +28,15 @@ public class CancionDAO {
 
     public Cancion obtenerCancionPorId(int id) {
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM cancion WHERE cancionId = ?");
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM Canciones WHERE cancionId = ?");
             preparedStatement.setInt(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
                 return new Cancion(
-                        resultSet.getInt("cancionId"),
+                        resultSet.getInt("cancion_Id"),
                         resultSet.getString("titulo"),
                         resultSet.getInt("duracion"),
-                        resultSet.getInt("albumId")
+                        resultSet.getInt("album_Id")
                 );
             }
         } catch (SQLException e) {
@@ -50,13 +49,13 @@ public class CancionDAO {
         List<Cancion> canciones = new ArrayList<>();
         try {
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT * FROM cancion");
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM Canciones");
             while (resultSet.next()) {
                 canciones.add(new Cancion(
-                        resultSet.getInt("cancionId"),
+                        resultSet.getInt("cancion_Id"),
                         resultSet.getString("titulo"),
                         resultSet.getInt("duracion"),
-                        resultSet.getInt("albumId")
+                        resultSet.getInt("album_Id")
                 ));
             }
         } catch (SQLException e) {
@@ -64,6 +63,7 @@ public class CancionDAO {
         }
         return canciones;
     }
+
     public void actualizarCancion(Cancion cancion) {
         try {
             String query = "UPDATE cancion SET titulo = ?, duracion = ?, albumId = ? WHERE cancionId = ?";
@@ -74,7 +74,8 @@ public class CancionDAO {
             preparedStatement.setInt(4, cancion.getCancionId());
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
-            e.printStackTrace();}
+            e.printStackTrace();
+        }
     }
 
     public void eliminarCancion(int id) {
@@ -83,6 +84,7 @@ public class CancionDAO {
             preparedStatement.setInt(1, id);
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
-            e.printStackTrace();}
+            e.printStackTrace();
+        }
     }
 }

@@ -48,4 +48,15 @@ public class Usuario {
     public void setFechaCreacion(Date fechaCreacion) {
         this.fechaCreacion = fechaCreacion;
     }
+
+    @Override
+    public String toString() {
+        return "Usuario" + '\n' +
+                "usuarioId: " + usuarioId+ '\n' +
+                "nombre: " + nombre + '\n' +
+                "email: " + email + '\n' +
+                "tipoSuscripcion: " + tipoSuscripcion + '\n' +
+                "fechaCreacion: " + fechaCreacion
+        ;
+    }
 }

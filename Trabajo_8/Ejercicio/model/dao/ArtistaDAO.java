@@ -1,23 +1,24 @@
 package Trabajo_8.Ejercicio.model.dao;
 
 import Trabajo_8.Ejercicio.model.Artista;
-import Trabajo_8.Ejercicio.model.util.DatabaseConnection;
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ArtistaDAO {
     private Connection connection;
-    public ArtistaDAO() {connection = DatabaseConnection.getConnection();}
+
+    public ArtistaDAO(Connection connection) {
+        this.connection = connection;
+    }
 
     public void insertarArtista(Artista artista) {
         try {
             String query = "INSERT INTO artistas (nombre, genero, nacionalidad) VALUES (?, ?, ?)";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, artista.getNombre());
-            preparedStatement.setString(2,artista.getGenero());
-            preparedStatement.setString(3,artista.getPaisOrigen());
+            preparedStatement.setString(2, artista.getGenero());
+            preparedStatement.setString(3, artista.getPaisOrigen());
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -31,10 +32,10 @@ public class ArtistaDAO {
             preparedStatement.setInt(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
-                return new Artista(resultSet.getInt("id"),
+                return new Artista(resultSet.getInt("artista_id"),
                         resultSet.getString("nombre"),
                         resultSet.getString("genero"),
-                        resultSet.getString("nacionalidad")
+                        resultSet.getString("pais_origen")
                 );
             }
         } catch (SQLException e) {
@@ -49,10 +50,10 @@ public class ArtistaDAO {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery("SELECT * FROM artistas");
             while (resultSet.next()) {
-                artistas.add(new Artista(resultSet.getInt("id"),
+                artistas.add(new Artista(resultSet.getInt("artista_id"),
                         resultSet.getString("nombre"),
                         resultSet.getString("genero"),
-                        resultSet.getString("nacionalidad")
+                        resultSet.getString("pais_origen")
                 ));
             }
         } catch (SQLException e) {
@@ -71,7 +72,8 @@ public class ArtistaDAO {
             preparedStatement.setInt(4, artista.getArtistaId());
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
-            e.printStackTrace();}
+            e.printStackTrace();
+        }
     }
 
     public void eliminarArtista(int id) {

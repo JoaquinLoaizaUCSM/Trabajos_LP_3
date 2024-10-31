@@ -6,7 +6,11 @@ public class Artista {
     private String genero;
     private String paisOrigen;
 
-    public Artista() {}
+    public Artista(String nombre, String genero, String paisOrigen) {
+        this.nombre = nombre;
+        this.genero = genero;
+        this.paisOrigen = paisOrigen;
+    }
     public Artista(int artistaId, String nombre, String genero, String paisOrigen) {
         this.artistaId = artistaId;
         this.nombre = nombre;

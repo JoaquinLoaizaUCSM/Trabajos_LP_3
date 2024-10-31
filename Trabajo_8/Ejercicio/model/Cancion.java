@@ -6,7 +6,11 @@ public class Cancion {
     private String titulo;
     private int duracion; // Duración en segundos
     private int albumId;  // Puede ser null si no pertenece a un álbum
-    public Cancion() {}
+    public Cancion(String titulo, int duracion, int albumId) {
+        this.titulo = titulo;
+        this.duracion = duracion;
+        this.albumId = albumId;
+    }
 
     public Cancion(int cancionId, String titulo, int duracion, int albumId) {
         this.cancionId = cancionId;

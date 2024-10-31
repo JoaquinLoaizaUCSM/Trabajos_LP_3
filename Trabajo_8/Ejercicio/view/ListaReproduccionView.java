@@ -6,24 +6,21 @@ import java.util.List;
 
 public class ListaReproduccionView {
 
-    public ListaReproduccion capturarDatosLista() {
-        // Capturar datos para una nueva lista de reproducción
-        return null;
+    public void MenuListaReproduccion() {
+        System.out.println("Menú de Listas de Reproducción");
+        System.out.println("1. Mostrar Listas de Reproducción");
+        System.out.println("2. Regresar al menú principal");
     }
+
 
     public void mostrarListas(List<ListaReproduccion> listas) {
         // Mostrar lista de listas de reproducción
+        for (ListaReproduccion lista : listas) {
+            System.out.println("ID: " + lista.getListaId() + ", Nombre: " + lista.getNombre() +
+                    ", Fecha: " + lista.getFechaCreacion());
+        }
     }
 
-    public int solicitarIdLista() {
-        // Solicitar el ID de una lista de reproducción
-        return 0;
-    }
-
-    public ListaReproduccion actualizarDatosLista(ListaReproduccion lista) {
-        // Actualizar datos de una lista de reproducción existente
-        return lista;
-    }
 
     public void mostrarMensaje(String mensaje) {
         System.out.println(mensaje);
