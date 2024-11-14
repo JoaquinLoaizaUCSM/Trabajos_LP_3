@@ -36,7 +36,7 @@ public class PersonajeDAO {
     public List<Personaje> importarCSV(String archivo) throws IOException {
         List<Personaje> personajes = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(archivo))) {
-            String line = reader.readLine(); // Skip header
+            String line;
             while ((line = reader.readLine()) != null) {
                 String[] datos = line.split(",");
                 personajes.add(new Personaje(

@@ -1,5 +1,6 @@
 package Trabajo_7.Ejercicios.Ejercicio1.model;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 public class Personaje implements Serializable {
@@ -9,6 +10,7 @@ public class Personaje implements Serializable {
     private int defensa;
     private int alcance;
     private int nivel;
+    @Serial
     private static final long serialVersionUID = 1L;
 
     public Personaje(String nombre, int vida, int ataque, int defensa, int alcance) {

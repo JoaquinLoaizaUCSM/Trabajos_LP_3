@@ -5,9 +5,9 @@ import java.util.List;
 import java.util.Random;
 
 public class Batalla {
-    private Personaje personaje1;
-    private Personaje personaje2;
-    private List<String> historialTurnos;
+    private final Personaje personaje1;
+    private final Personaje personaje2;
+    private final List<String> historialTurnos;
     private boolean finalizada;
     private Personaje ganador;
     

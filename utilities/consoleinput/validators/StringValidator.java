@@ -64,6 +64,11 @@ public class StringValidator implements InputValidator<String> {
                 .errorMessage("La entrada debe contener solo caracteres alfanuméricos.");
     }
 
+    public StringValidator alphabetic() {
+        return matches("^[a-zA-Z]*$")
+                .errorMessage("La entrada debe contener solo caracteres alfabéticos.");
+    }
+
 
 
     @Override

@@ -39,13 +39,13 @@ public class ContadorPalabras {
                 }
             }
 
-            // Mostrar resultados
+
             System.out.println("Total de líneas: " + lineas);
             System.out.println("Total de palabras: " + palabras);
             System.out.println("Total de caracteres: " + caracteres);
             System.out.println("Promedio de palabras por línea: " + String.format("%.2f", (double) palabras / lineas));
 
-            // Mostrar palabras más frecuentes
+
             System.out.println("Palabras más frecuentes:");
             frecuenciaPalabras.entrySet().stream()
                     .sorted(Map.Entry.<String, Integer>comparingByValue().reversed())

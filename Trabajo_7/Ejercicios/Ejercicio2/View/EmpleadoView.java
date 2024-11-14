@@ -32,13 +32,13 @@ public class EmpleadoView {
     }
 
     public Empleado ingresarDatosEmpleado() {
-        System.out.print("Ingrese el número del empleado: ");
-        int numero = scanner.nextInt();
-        scanner.nextLine();
-        System.out.print("Ingrese el nombre del empleado: ");
-        String nombre = scanner.nextLine();
-        System.out.print("Ingrese el sueldo del empleado: ");
-        double sueldo = scanner.nextDouble();
+
+        int numero = InputReader.read("Ingrese el numero del empleado: ", new IntegerValidator());
+
+        String nombre = InputReader.read("Ingrese el nombre del empleado: ", new StringValidator().alphabetic());
+
+        double sueldo = InputReader.read("Ingrese el sueldo del empleado: ", new IntegerValidator().
+                min(700).errorMessage("Ingrese mas sueldo explorador"));
 
         return new Empleado(numero, nombre, sueldo);
     }

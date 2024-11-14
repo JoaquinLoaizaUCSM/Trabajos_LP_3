@@ -13,11 +13,12 @@ public class Main {
         BatallaController batallaController = new BatallaController(batallaView);
 
         try {
-            // Crear personajes para la batalla
+
             Personaje guerrero = new Personaje("Guerrero", 100, 20, 15, 30);
             Personaje mago = new Personaje("Mago", 80, 30, 10, 50);
+            Personaje arquero = new Personaje("Arquero", 90, 25, 20, 25);
 
-            // Iniciar y simular batalla
+
             batallaController.iniciarBatalla(guerrero, mago);
             batallaController.simularBatallaCompleta();
 
