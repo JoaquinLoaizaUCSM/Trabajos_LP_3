@@ -1,3 +1,4 @@
+/*
 package Trabajo_9.Ejercicio;
 
 import javax.swing.*;
@@ -162,3 +163,4 @@ public class TicketBookingApp extends JFrame {
         SwingUtilities.invokeLater(() -> new TicketBookingApp().setVisible(true));
     }
 }
+*/

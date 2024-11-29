@@ -26,7 +26,6 @@ public class Main {
 
             switch (opcion) {
                 case 1:
-                    // Gestión de Usuarios
                     UsuarioDAO usuarioDAO = new UsuarioDAO(connection);
                     UsuarioView usuarioView = new UsuarioView();
                     UsuarioController usuarioController = new UsuarioController(usuarioDAO, usuarioView);
@@ -52,11 +51,11 @@ public class Main {
                     }
                     break;
                 case 2:
-                    // Gestión de Artistas
+
                     ArtistaDAO artistaDAO = new ArtistaDAO(connection);
                     ArtistaView artistaView = new ArtistaView();
                     ArtistaController artistaController = new ArtistaController(artistaDAO, artistaView);
-                    // Llamar a métodos del controlador de artistas
+
                     artistaView.MenuArtista();
                     int opcionArtista = mainView.leerOpcion();
                     switch (opcionArtista) {
@@ -104,11 +103,10 @@ public class Main {
                     }
                     break;
                 case 4:
-                    // Gestión de Canciones
                     CancionDAO cancionDAO = new CancionDAO(connection);
                     CancionView cancionView = new CancionView();
                     CancionController cancionController = new CancionController(cancionDAO, cancionView);
-                    // Llamar a métodos del controlador de canciones
+
 
                     cancionView.MenuCancion();
                     int opcionCancion = mainView.leerOpcion();
@@ -130,14 +128,12 @@ public class Main {
                         default:
                             System.out.println("Opción no válida. Intente de nuevo.");
                     }
-
-
                     break;
                 case 5:
                     ListaReproduccionDAO listaDAO = new ListaReproduccionDAO(connection);
                     ListaReproduccionView listaView = new ListaReproduccionView();
                     ListaReproduccionController listaController = new ListaReproduccionController(listaDAO, listaView);
-                    // Llamar a métodos del controlador de listas de reproducción
+
                     listaView.MenuListaReproduccion();
 
                     int opcionLista = mainView.leerOpcion();
@@ -161,7 +157,6 @@ public class Main {
             }
         } while (opcion != 6);
 
-        // Cerrar la conexión a la base de datos al salir
         DatabaseConnection.closeConnection();
     }
 }

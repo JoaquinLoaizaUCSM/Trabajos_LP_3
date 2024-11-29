@@ -28,7 +28,7 @@ public class AlbumDAO {
     }
 
     public Album obtenerAlbumPorId(int id) {
-        String query = "SELECT * FROM albumes WHERE albumId = ?";
+        String query = "SELECT * FROM albumes WHERE album_Id = ?";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setInt(1, id);
@@ -80,7 +80,7 @@ public class AlbumDAO {
     }
 
     public void actualizarAlbum(Album album) {
-        String query = "UPDATE albumes SET nombre = ?, fechaLanzamiento = ?, genero = ? WHERE albumId = ?";
+        String query = "UPDATE albumes SET nombre = ?, fecha_Lanzamiento = ?, genero = ? WHERE album_Id = ?";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, album.getNombre());
@@ -94,7 +94,7 @@ public class AlbumDAO {
     }
 
     public void eliminarAlbum(int id) {
-        String query = "DELETE FROM albumes WHERE albumId = ?";
+        String query = "DELETE FROM albumes WHERE album_Id = ?";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setInt(1, id);

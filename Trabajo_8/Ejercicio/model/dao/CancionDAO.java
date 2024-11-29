@@ -66,7 +66,7 @@ public class CancionDAO {
 
     public void actualizarCancion(Cancion cancion) {
         try {
-            String query = "UPDATE cancion SET titulo = ?, duracion = ?, albumId = ? WHERE cancionId = ?";
+            String query = "UPDATE cancion SET titulo = ?, duracion = ?, albumId = ? WHERE cancion_Id = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, cancion.getTitulo());
             preparedStatement.setInt(2, cancion.getDuracion());
@@ -80,7 +80,7 @@ public class CancionDAO {
 
     public void eliminarCancion(int id) {
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM cancion WHERE cancionId = ?");
+            PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM cancion WHERE cancion_Id = ?");
             preparedStatement.setInt(1, id);
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
